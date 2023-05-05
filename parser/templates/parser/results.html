@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="container">
+        <h2>Company Data</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+                <thead>
+                <tr>
+                    {% for field in company_data.model.get_fields %}
+                        <th>{{ field.verbose_name }}</th>
+                    {% endfor %}
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in company_data %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.date }}</td>
+                        <td>{{ item.company }}</td>
+                        <td>{{ item.fact_qliq_data1 }}</td>
+                        <td>{{ item.fact_qliq_data2 }}</td>
+                        <td>{{ item.fact_qoil_data1 }}</td>
+                        <td>{{ item.fact_qoil_data2 }}</td>
+                        <td>{{ item.forecast_qliq_data1 }}</td>
+                        <td>{{ item.forecast_qliq_data2 }}</td>
+                        <td>{{ item.forecast_qoil_data1 }}</td>
+                        <td>{{ item.forecast_qoil_data2 }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock content %}
